@@ -1,20 +1,39 @@
-// APP/GLOBAL STATE IS HERE
-import { useState } from 'react';
-import Header from './components/Header';
-import FeedbackItem from './components/FeedbackItem';
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Header from './components/Header'
+import FeedbackList from './components/FeedbackList'
+import FeedbackStats from './components/FeedbackStats'
+import FeedbackForm from './components/FeedbackForm'
+import AboutIconLink from './components/AboutIconLink'
+import AboutPage from './pages/AboutPage'
+import { FeedbackProvider } from './context/FeedbackContext'
 
 function App() {
-  //{/* Props can be passed through a component like Header (text is the prop----- must be causght in the component in Header.jsx) */}
-  const[feedback, setFeedback] = useState()
   return (
-  <>
-  <Header bgColor='red' textColor='blue'/>
-  <div className='container'>
-    <FeedbackItem />
-  </div>
-  </>
+    <FeedbackProvider>
+      <Router>
+        <Header />
+        <div className='container'>
+          <Routes>
+            <Route
+              exact
+              path='/'
+              element={
+                <>
+                  <FeedbackForm />
+                  <FeedbackStats />
+                  <FeedbackList />
+                </>
+              }
+            ></Route>
+
+            <Route path='/about' element={<AboutPage />} />
+          </Routes>
+
+          <AboutIconLink />
+        </div>
+      </Router>
+    </FeedbackProvider>
   )
 }
 
-export default App;
+export default App
