@@ -12,3 +12,10 @@ npm i react-router-dom@6.0.1
 npm i concurrently@6.3.0
 
 npm i json-server@0.17.0
+
+npm run build   
+ FOLLOWED BY
+serve -s build
+
+<!-- CONCURRENTLY STARTED WITH... -->
+npm run dev
