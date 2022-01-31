@@ -19,3 +19,6 @@ serve -s build
 
 <!-- CONCURRENTLY STARTED WITH... -->
 npm run dev
+
+<!-- Installed netlify to deploy -->
+npm install -g netlify-cli
